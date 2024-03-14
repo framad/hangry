@@ -54,23 +54,19 @@ class RekapKehadiran(models.Model):
     tanggal_31 = fields.Char()
 
     def fill_tanggal_fields(self):
-        # Find related absensi records for the current user and month
         absensi_records = self.env['hangry.attendance'].search([
             ('user_id', '=', self.user_id.id),
             ('create_date', 'like', f'{self.month_selection}-%'),
-            ('is_validated','=',True)  # Assuming 'create_date' is a DateTime field
+            ('is_validated','=',True)
         ])
 
-        # Fill tanggal fields based on absensi records
         for absensi in absensi_records:
-            # Extract day from the create_date of absensi
             day = absensi.jam_shift_id.date.day
-            # Update the corresponding tanggal field in rekap_kehadiran
             field_name = f'tanggal_{day}'
             if absensi.is_hadir == True:
-                self[field_name] = 'H'  # or any other value as needed
+                self[field_name] = 'H'
             elif absensi.is_tidakhadir == True:
-                self[field_name] = 'OFF'  # or any other value as needed
+                self[field_name] = 'OFF'
             else:
                 pass
 
