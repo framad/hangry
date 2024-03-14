@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <record id="hangry_employee_form" model="ir.ui.view">
+            <field name="name">Employee</field>
+            <field name="model">hangry.employee</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="jabatan"/>
+                            <field name="ordinat" domain="[('jabatan','=','SPV')]"/>
+                            <field name="login"/>
+                            <field name="password"/>
+                            
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hangry_employee_tree" model="ir.ui.view">
+            <field name="name">Employee</field>
+            <field name="model">hangry.employee</field>
+            <field name="arch" type="xml">
+                <tree limit="50">
+                    <field name="name"/>
+                            <field name="type"/>
+                            <field name="jabatan"/>
+                            <field name="ordinat"/>
+                            <field name="login"/>
+                            <field name="password"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hangry_employee_action" model="ir.actions.act_window">
+            <field name="name">Employee</field>
+            <field name="res_model">hangry.employee</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="help" type="html">
+                <p class="0_view_nocontent_smiling_face">
+                    Data Kosong
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="hangry_employee" name="Employee" parent="master_data" action="hangry_employee_action"/>
+    </data>
+</odoo>

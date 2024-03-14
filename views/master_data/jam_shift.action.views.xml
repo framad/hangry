@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <record id="hangry_jam_shift_form" model="ir.ui.view">
+            <field name="name">Jam Shift</field>
+            <field name="model">hangry.jam_shift</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+
+                            <field name="name"/>
+                            <field name="month"/>
+                            <field name="date"/>
+                            <field name="shift_type"/>
+                            <field name="is_available"/>
+
+                            
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hangry_jam_shift_tree" model="ir.ui.view">
+            <field name="name">Jam Shift</field>
+            <field name="model">hangry.jam_shift</field>
+            <field name="arch" type="xml">
+                <tree limit="50">
+                    <field name="name"/>
+                            <field name="date"/>
+                            <field name="month"/>
+                            <field name="shift_type"/>
+                            <field name="is_available"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hangry_jam_shift_action" model="ir.actions.act_window">
+            <field name="name">Jam Shift</field>
+            <field name="res_model">hangry.jam_shift</field>
+            <field name="view_mode">kanban,tree,form,graph</field>
+            <field name="help" type="html">
+                <p class="0_view_nocontent_smiling_face">
+                    Data Kosong
+                </p>
+            </field>
+        </record>
+
+        <record id="generate_records" model="ir.cron">
+            <field name="name">Otomasi Generate record master jam shift</field>
+            <field name="model_id" ref="model_hangry_jam_shift"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.generate_records()</field>
+            <field name="interval_number">1</field> <!-- Run every 1 month -->
+            <field name="interval_type">months</field> <!-- Monthly interval -->
+            <!-- <field name="nextcall" eval="(datetime.datetime.now() + relativedelta.relativedelta(day=1, hour=0, minute=1, second=0)).strftime('%Y-%m-%d %H:%M:%S')" /> -->
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record id="reset_jam_shift" model="ir.cron">
+            <field name="name">Otomasi Reset jam shift</field>
+            <field name="model_id" ref="model_hangry_jam_shift"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.reset_jam_shift()</field>
+            <field name="interval_number">1</field> <!-- Run every 1 month -->
+            <field name="interval_type">minutes</field> <!-- Monthly interval -->
+            <!-- <field name="nextcall" eval="(datetime.datetime.now() + relativedelta.relativedelta(day=1, hour=0, minute=1, second=0)).strftime('%Y-%m-%d %H:%M:%S')" /> -->
+            <field name="numbercall">-1</field>
+        </record>
+
+        <menuitem id="hangry_jam_shift" name="Jam Shift" parent="master_data" action="hangry_jam_shift_action"/>
+    </data>
+</odoo>

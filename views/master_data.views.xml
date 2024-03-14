@@ -1,0 +1,5 @@
+<odoo>
+    <data>
+        <menuitem id="master_data" parent="hangry_root" name="Master Data" sequence="99" groups="hangry.group_admin"/>
+    </data>
+</odoo>

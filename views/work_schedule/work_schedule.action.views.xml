@@ -1,0 +1,58 @@
+<odoo>
+    <data>
+        <record id="hangry_work_schedule_form" model="ir.ui.view">
+            <field name="name">Work Schedule</field>
+            <field name="model">hangry.work_schedule</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="pilih_shift" type="object" string="Ambil Shift Kerja" class="oe_highlight" attrs="{'invisible': [('change_shift', '=', True)]}"/>
+                        <button name="attend_kehadiran" type="object" string="Checkin / Checkout" class="oe_highlight" attrs="{'invisible': ['&amp;',('is_attend', '=', True),('is_finish', '=', True)]}"/>
+                        <button name="absen_off" type="object" string="Absen OFF" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="user_id" groups='hangry.group_staff,hangry.group_spv' readonly='1'/>
+                            <field name="user_id" groups='hangry.group_admin'/>
+                            <field name="type_id" force_save='1'/>
+                            <field name="is_finish" force_save='1' invisible='1'/>
+                            <field name="is_attend" force_save='1' invisible='1'/>
+                            <field name="jam_shift_id" attrs="{'readonly': [('type_id', '!=', 'Part Time')]}" domain="[('is_available','=',True)]"/>
+                            <field name="jam_shift_id" groups='hangry.group_admin'/>
+                            <field name="change_shift" string="Ambil Shift" attrs="{'readonly': ['|',('change_shift', '=', True),('type_id', '!=', 'Part Time')]}" force_save='1'/>
+                            <field name="is_posting" groups='hangry.group_admin'/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hangry_work_schedule_tree" model="ir.ui.view">
+            <field name="name">Work Schedule</field>
+            <field name="model">hangry.work_schedule</field>
+            <field name="arch" type="xml">
+                <tree limit="50">
+                    <header>
+                        <button name="post_schedule" type="object" string="Posting Jadwal Kerja" class="oe_highlight"/>
+                    </header>
+                    <field name="user_id"/>
+                    <field name="jam_shift_id"/>
+                    <field name="change_shift" string="Ambil Shift"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hangry_work_schedule_action" model="ir.actions.act_window">
+            <field name="name">Work Schedule</field>
+            <field name="res_model">hangry.work_schedule</field>
+            <field name="view_mode">tree,kanban,form,graph</field>
+            <field name="help" type="html">
+                <p class="0_view_nocontent_smiling_face">
+                    Data Kosong
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="hangry_work_schedule" name="Work Schedule" parent="hangry_root" action="hangry_work_schedule_action"/>
+    </data>
+</odoo>

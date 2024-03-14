@@ -1,0 +1,5 @@
+<odoo>
+    <data>
+        <menuitem id="hangry_root" name="Hangry" sequence="0"/>
+    </data>
+</odoo>

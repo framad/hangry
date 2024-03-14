@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+        <record id="hangry_attendance_form" model="ir.ui.view">
+            <field name="name">Attendance</field>
+            <field name="model">hangry.attendance</field>
+            <field name="arch" type="xml">
+                <form create='0' edit='0' delete='0'>
+                <header>
+                    <button string="Validasi Absensi" type="object" name="approve_spv" class="oe_highlight" groups="hangry.group_spv,hangry.group_admin" confirm="Apakah Anda Yakin?" />
+                </header>
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="ordinat_id"/>
+                            <field name="jam_shift_id"/>
+                            <field name="checkin"/>
+                            <field name="checkout"/>
+                            <field name="geolocation_checkin"/>
+                            <field name="geolocation_checkout"/>
+                            <!-- <field name="longitude"/>
+                            <field name="latitude"/> -->
+                            <field name="is_validated" groups='hangry.group_spv,hangry.group_admin' readonly='1'/>
+                        </group>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hangry_attendance_tree" model="ir.ui.view">
+            <field name="name">Attendance</field>
+            <field name="model">hangry.attendance</field>
+            <field name="arch" type="xml">
+                <tree limit="50" create='0' edit='0' delete='0'>
+                    <field name="user_id"/>
+                            <field name="ordinat_id"/>
+                            <field name="jam_shift_id"/>
+                            <field name="checkin"/>
+                            <field name="checkout"/>
+                            <field name="geolocation_checkin"/>
+                            <field name="geolocation_checkout"/>
+                            <!-- <field name="longitude"/>
+                            <field name="latitude"/> -->
+                            <field name="is_validated" groups='hangry.group_spv,hangry.group_admin' readonly='1'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hangry_attendance_action" model="ir.actions.act_window">
+            <field name="name">Attendance</field>
+            <field name="res_model">hangry.attendance</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="help" type="html">
+                <p class="0_view_nocontent_smiling_face">
+                    Data Kosong
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="hangry_attendance" name="Attendance" parent="hangry_root" action="hangry_attendance_action"/>
+    </data>
+</odoo>

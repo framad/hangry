@@ -1,0 +1,114 @@
+<odoo>
+    <data>
+        <record id="hangry_rekap_kehadiran_form" model="ir.ui.view">
+            <field name="name">Rekap Kehadiran</field>
+            <field name="model">hangry.rekap_kehadiran</field>
+            <field name="arch" type="xml">
+                <form>
+                <header>
+                    <button string="Compute Kehadiran" type="object" name="fill_tanggal_fields" class="oe_highlight" groups="hangry.group_spv,hangry.group_admin" confirm="Apakah Anda Yakin?" />
+                </header>
+                    <sheet>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="ordinat_id"/>
+                            <field name="month_selection"/>
+                        </group>
+                        <notebook>
+                            <page string="Absensi">
+                                <group>
+                                    <field name="tanggal_1" string="Tanggal 1" readonly="1" force_save='1'/>
+                                    <field name="tanggal_2" string="Tanggal 2" readonly="1" force_save='1'/>
+                                    <field name="tanggal_3" string="Tanggal 3" readonly="1" force_save='1'/>
+                                    <field name="tanggal_4" string="Tanggal 4" readonly="1" force_save='1'/>
+                                    <field name="tanggal_5" string="Tanggal 5" readonly="1" force_save='1'/>
+                                    <field name="tanggal_6" string="Tanggal 6" readonly="1" force_save='1'/>
+                                    <field name="tanggal_7" string="Tanggal 7" readonly="1" force_save='1'/>
+                                    <field name="tanggal_8" string="Tanggal 8" readonly="1" force_save='1'/>
+                                    <field name="tanggal_9" string="Tanggal 9" readonly="1" force_save='1'/>
+                                    <field name="tanggal_10" string="Tanggal 10" readonly="1" force_save='1'/>
+                                    <field name="tanggal_11" string="Tanggal 11" readonly="1" force_save='1'/>
+                                    <field name="tanggal_12" string="Tanggal 12" readonly="1" force_save='1'/>
+                                    <field name="tanggal_13" string="Tanggal 13" readonly="1" force_save='1'/>
+                                    <field name="tanggal_14" string="Tanggal 14" readonly="1" force_save='1'/>
+                                    <field name="tanggal_15" string="Tanggal 15" readonly="1" force_save='1'/>
+                                    <field name="tanggal_16" string="Tanggal 16" readonly="1" force_save='1'/>
+                                    <field name="tanggal_17" string="Tanggal 17" readonly="1" force_save='1'/>
+                                    <field name="tanggal_18" string="Tanggal 18" readonly="1" force_save='1'/>
+                                    <field name="tanggal_19" string="Tanggal 19" readonly="1" force_save='1'/>
+                                    <field name="tanggal_20" string="Tanggal 20" readonly="1" force_save='1'/>
+                                    <field name="tanggal_21" string="Tanggal 21" readonly="1" force_save='1'/>
+                                    <field name="tanggal_22" string="Tanggal 22" readonly="1" force_save='1'/>
+                                    <field name="tanggal_23" string="Tanggal 23" readonly="1" force_save='1'/>
+                                    <field name="tanggal_24" string="Tanggal 24" readonly="1" force_save='1'/>
+                                    <field name="tanggal_25" string="Tanggal 25" readonly="1" force_save='1'/>
+                                    <field name="tanggal_26" string="Tanggal 26" readonly="1" force_save='1'/>
+                                    <field name="tanggal_27" string="Tanggal 27" readonly="1" force_save='1'/>
+                                    <field name="tanggal_28" string="Tanggal 28" readonly="1" force_save='1'/>
+                                    <field name="tanggal_29" string="Tanggal 29" readonly="1" force_save='1'/>
+                                    <field name="tanggal_30" string="Tanggal 30" readonly="1" force_save='1'/>
+                                    <field name="tanggal_31" string="Tanggal 31" readonly="1" force_save='1'/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hangry_rekap_kehadiran_tree" model="ir.ui.view">
+            <field name="name">Rekap Kehadiran</field>
+            <field name="model">hangry.rekap_kehadiran</field>
+            <field name="arch" type="xml">
+                <tree limit="50">
+                    <field name="user_id"/>
+                    <field name="month_selection"/>
+                    <field name="tanggal_1" string="1" readonly="1" force_save='1'/>
+                    <field name="tanggal_2" string=" 2" readonly="1" force_save='1'/>
+                    <field name="tanggal_3" string=" 3" readonly="1" force_save='1'/>
+                    <field name="tanggal_4" string=" 4" readonly="1" force_save='1'/>
+                    <field name="tanggal_5" string=" 5" readonly="1" force_save='1'/>
+                    <field name="tanggal_6" string=" 6" readonly="1" force_save='1'/>
+                    <field name="tanggal_7" string=" 7" readonly="1" force_save='1'/>
+                    <field name="tanggal_8" string=" 8" readonly="1" force_save='1'/>
+                    <field name="tanggal_9" string=" 9" readonly="1" force_save='1'/>
+                    <field name="tanggal_10" string=" 10" readonly="1" force_save='1'/>
+                    <field name="tanggal_11" string=" 11" readonly="1" force_save='1'/>
+                    <field name="tanggal_12" string=" 12" readonly="1" force_save='1'/>
+                    <field name="tanggal_13" string=" 13" readonly="1" force_save='1'/>
+                    <field name="tanggal_14" string=" 14" readonly="1" force_save='1'/>
+                    <field name="tanggal_15" string=" 15" readonly="1" force_save='1'/>
+                    <field name="tanggal_16" string=" 16" readonly="1" force_save='1'/>
+                    <field name="tanggal_17" string=" 17" readonly="1" force_save='1'/>
+                    <field name="tanggal_18" string=" 18" readonly="1" force_save='1'/>
+                    <field name="tanggal_19" string=" 19" readonly="1" force_save='1'/>
+                    <field name="tanggal_20" string=" 20" readonly="1" force_save='1'/>
+                    <field name="tanggal_21" string=" 21" readonly="1" force_save='1'/>
+                    <field name="tanggal_22" string=" 22" readonly="1" force_save='1'/>
+                    <field name="tanggal_23" string=" 23" readonly="1" force_save='1'/>
+                    <field name="tanggal_24" string=" 24" readonly="1" force_save='1'/>
+                    <field name="tanggal_25" string=" 25" readonly="1" force_save='1'/>
+                    <field name="tanggal_26" string=" 26" readonly="1" force_save='1'/>
+                    <field name="tanggal_27" string=" 27" readonly="1" force_save='1'/>
+                    <field name="tanggal_28" string=" 28" readonly="1" force_save='1'/>
+                    <field name="tanggal_29" string=" 29" readonly="1" force_save='1'/>
+                    <field name="tanggal_30" string=" 30" readonly="1" force_save='1'/>
+                    <field name="tanggal_31" string=" 31" readonly="1" force_save='1'/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hangry_rekap_kehadiran_action" model="ir.actions.act_window">
+            <field name="name">Rekap Kehadiran</field>
+            <field name="res_model">hangry.rekap_kehadiran</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="help" type="html">
+                <p class="0_view_nocontent_smiling_face">
+                    Data Kosong
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="hangry_rekap_kehadiran" name="Rekap Kehadiran" parent="hangry_root" action="hangry_rekap_kehadiran_action"/>
+    </data>
+</odoo>
